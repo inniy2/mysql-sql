@@ -1,4 +1,5 @@
 /* from master */
+select @@hostname;
 drop database if exists test_db;
 create database test_db;
 
@@ -13,6 +14,7 @@ primary key (a)
 
 insert into tbl1 (b) values (1),(1),(1),(1),(1),(1),(1),(1);
 insert into tbl1 (b) values (2),(2),(2),(2),(2),(2),(2),(2);
+insert into tbl1 (b) values (3),(3),(3),(3),(3),(3),(3),(3);
 insert into tbl1 (b) values (4),(4),(4),(4),(4),(4),(4),(4);
 insert into tbl1 (b) values (5),(5),(5),(5),(5),(5),(5),(5);
 insert into tbl1 (b) values (6),(6),(6),(6),(6),(6),(6),(6);

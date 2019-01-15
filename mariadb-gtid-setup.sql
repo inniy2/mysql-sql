@@ -1,4 +1,5 @@
 /* from master */
+select @@hostname;
 use mysql;
 
 show grants for 'repl'@'%';
@@ -12,9 +13,9 @@ show master status;
 
 show variables like '%gtid%';
 
-SELECT BINLOG_GTID_POS('mysql-bin.000001', 929);
+SELECT BINLOG_GTID_POS('mysql-bin.000001', 1487);
 
-/* 1-1-4 */
+/* 1-1-8 */
 
 create database test;
 drop database test;

@@ -70,6 +70,36 @@ partition by range (to_days(c))
 --execute
 ;
 
+
+
+gh-ost \
+--conf=/etc/gh-ost/gh-ost.cnf \
+--max-load=Threads_running=25 \
+--critical-load=Threads_running=1000 \
+--chunk-size=1000 \
+--max-lag-millis=1500 \
+--host="192.168.33.12" \
+--serve-tcp-port=3333 \
+--throttle-control-replicas="192.168.33.12:3306" \
+--port=3306 \
+--database="test_db" \
+--table="tbl1" \
+--verbose \
+--alter="modify column a bigint unsigned not null auto_increment" \
+--switch-to-rbr \
+--allow-master-master \
+--cut-over=default \
+--exact-rowcount \
+--concurrent-rowcount \
+--default-retries=120 \
+--panic-flag-file=/tmp/ghost.panic.flag \
+--postpone-cut-over-flag-file=/tmp/ghost.postpone.flag \
+--initially-drop-ghost-table \
+--initially-drop-old-table \
+--execute
+
+
+
 use test_db;
 
 select @@hostname;
